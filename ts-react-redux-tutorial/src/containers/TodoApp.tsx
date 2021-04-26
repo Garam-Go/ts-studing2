@@ -5,7 +5,7 @@ import { toggleTodo, removeTodo, addTodo } from '../modules/todos';
 import TodoInsert from '../components/TodoInsert'
 import TodoList from '../components/TodoList';
 
-const TodoApp = () => {
+const TodoApp: React.FC = () => {
   const todos = useSelector((state: RootState) => state.todos);
   const dispatch = useDispatch();
 
