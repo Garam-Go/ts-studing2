@@ -50,6 +50,7 @@ function todos(
 ): TodosState {
   switch (action.type) {
     case ADD_TODO:
+      console.log('todos modules ADD_TODO', action, state)
       return state.concat({
         // action.payload객체 안의 값이 모두 유추됨
         id: action.payload.id,
@@ -57,11 +58,13 @@ function todos(
         done: false
       })
       case TOGGLE_TODO:
+        console.log('todos modules TOGGLE_TODO', action, state)
         return state.map(todo =>
           // payload 가 number 인 것이 유추됩니다.
           todo.id === action.payload ? { ...todo, done: !todo.done } : todo
         );
       case REMOVE_TODO:
+        console.log('todos modules REMOVE_TODO', action, state)
         // payload 가 number 인 것이 유추됩니다.
         return state.filter(todo => todo.id !== action.payload);
       default:
